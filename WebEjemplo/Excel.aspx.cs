@@ -15,7 +15,7 @@ namespace WebEjemplo
 {
     public partial class Excel : System.Web.UI.Page
     {
-        public static string path = @"C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\archivo excel para subir";//aqui va la direccion del documento excel que se va a subir
+        public static string path = @"C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\archivo excel para subir\miexcel.xlsx";//aqui va la direccion del documento excel que se va a subir
         public static string connStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extend Properties=Excel 12.0;";
 
         protected void Page_Load(object sender, EventArgs e, string strm)
@@ -93,7 +93,7 @@ namespace WebEjemplo
 
 
                 CargarDatos(lblOculto.Text);
-                Label2.Text = " Datos guardados exitosamente";
+               
             }
             catch
             {
@@ -117,7 +117,7 @@ namespace WebEjemplo
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
-            string path = @"C:\Users\kevin\OneDrive\Escritorio\ProyectoExcel\miexcel.xlsx";//direccion del archivos para que cargue los datos en la base
+            string path = @"C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\archivo excel para subir\miexcel.xlsx";//direccion del archivos para que cargue los datos en la base
             SLDocument sl = new SLDocument(path);
             using (var db = new pruebaEntities2())
             {
