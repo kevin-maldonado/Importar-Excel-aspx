@@ -15,11 +15,8 @@ namespace WebEjemplo
 {
     public partial class Excel : System.Web.UI.Page
     {
-        public static string path = @"C:\Users\kevin\OneDrive\Escritorio\ProyectoExcel\miexcel.xlsx";
+        public static string path = @"C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\archivo excel para subir";//aqui va la direccion del documento excel que se va a subir
         public static string connStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extend Properties=Excel 12.0;";
-
-
-
 
         protected void Page_Load(object sender, EventArgs e, string strm)
         {
@@ -28,44 +25,29 @@ namespace WebEjemplo
         //metodo para cargar los datos 
         private void CargarDatos(string strm)
         {
+
             SLDocument sl = new SLDocument(path);
+            
             //desde donde se va a inicar los datos
             int iRow = 2;
             //se crea la lista view models
             List<LogicaExcel> lst = new List<LogicaExcel>();
-
+            //Valida si los campos del excel estan sin ningun codigo
             while (!string.IsNullOrEmpty(sl.GetCellValueAsString(iRow, 1)))
             {
                 LogicaExcel Usuario = new LogicaExcel();
                 Usuario.codigo = sl.GetCellValueAsString(iRow, 1);
                 Usuario.nombre = sl.GetCellValueAsString(iRow, 2);
                 Usuario.edad = sl.GetCellValueAsInt32(iRow, 3);
+                
                 lst.Add(Usuario);
-
                 iRow++;
-
             }
             //se muestra los datos en el data grid view
-
             GridView1.DataSource = lst;
             GridView1.DataBind();
         }
-        ////metodo para guardar la tabla en base de datos
-        //private DataTable CrearTabla(String fila)
-        //{
-        //    int cantidadColumnas;
-        //    DataTable tabla = new DataTable("miexcel");
-        //    String[] valores = fila.Split(new char[] { ',' });
-        //    cantidadColumnas = valores.Length;
-        //    int idx = 0;
-        //    foreach (String val in valores)
-        //    {
-        //        String nombreColumna = String.Format("{0}", idx++);
-        //        tabla.Columns.Add(nombreColumna, Type.GetType("System.String"));
-        //    }
-        //    return tabla;
-        //}
-        
+
         //metodo para verificar el tipo de archivo
         bool ChecarExtension(string fileName)
         {
@@ -79,15 +61,15 @@ namespace WebEjemplo
             }
         }
         //botones
-        //para subir el archivo de excel
+        //para subir el archivo de excel y en donde se va a guardar nuestro archivo excel
         public void Button1_Click(object sender, EventArgs e)
         {
-            
+
             if (FileUpload1.HasFile)
             {
                 if (ChecarExtension(FileUpload1.FileName))
                 {
-                    
+
                     FileUpload1.SaveAs(MapPath("~/ArchivoExcel/" + FileUpload1.FileName));
 
 
@@ -109,21 +91,36 @@ namespace WebEjemplo
             try
             {
 
+
                 CargarDatos(lblOculto.Text);
+                Label2.Text = " Datos guardados exitosamente";
             }
             catch
             {
                 Response.Write("Ocurrio un error debe cargar antes el archivo");
             }
         }
+        protected void grdDatos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
 
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string nombre = DataBinder.Eval(e.Row.DataItem, "nombre").ToString();
+
+                if (nombre != String.Empty)
+                    e.Row.BackColor = System.Drawing.Color.Transparent;
+                else
+                    e.Row.BackColor = System.Drawing.Color.Red;
+            }
+           
+
+        }
         protected void Button3_Click(object sender, EventArgs e)
         {
-            string path = @"C:\Users\kevin\OneDrive\Escritorio\ProyectoExcel\miexcel.xlsx";
+            string path = @"C:\Users\kevin\OneDrive\Escritorio\ProyectoExcel\miexcel.xlsx";//direccion del archivos para que cargue los datos en la base
             SLDocument sl = new SLDocument(path);
-            using (var db = new pruebaEntities1())
+            using (var db = new pruebaEntities2())
             {
-
                 int iRow = 2;
                 while (!string.IsNullOrEmpty(sl.GetCellValueAsString(iRow, 1)))
                 {
@@ -131,17 +128,17 @@ namespace WebEjemplo
                     string nombre = sl.GetCellValueAsString(iRow, 2);
                     int edad = sl.GetCellValueAsInt32(iRow, 3);
 
-                    var oMiExcel = new miexcel();
-                    oMiExcel.codigo = codigo;
-                    oMiExcel.nombre = nombre;
-                    oMiExcel.edad = edad;
+                    var oPersona = new Persona();
+                    oPersona.codigo = codigo;
+                    oPersona.nombre = nombre;
+                    oPersona.edad = edad;
 
-                    db.miexcel.Add(oMiExcel);
+                    db.Persona.Add(oPersona);
                     db.SaveChanges();
 
                     iRow++;
                 }
             }
-        }
+        }   
     }
 }

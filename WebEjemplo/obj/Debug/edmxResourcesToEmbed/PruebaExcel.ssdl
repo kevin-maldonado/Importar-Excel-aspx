@@ -9,7 +9,17 @@
     <Property Name="nombre" Type="varchar" MaxLength="50" />
     <Property Name="edad" Type="int" />
   </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="255" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" />
+    <Property Name="edad" Type="int" />
+  </EntityType>
   <EntityContainer Name="pruebaModelStoreContainer">
     <EntitySet Name="miexcel" EntityType="Self.miexcel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

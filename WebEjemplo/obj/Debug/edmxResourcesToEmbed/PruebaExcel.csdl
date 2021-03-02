@@ -9,7 +9,17 @@
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="edad" Type="Int32" />
   </EntityType>
-  <EntityContainer Name="pruebaEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="pruebaEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="miexcel" EntityType="Self.miexcel" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" />
   </EntityContainer>
 </Schema>

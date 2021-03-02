@@ -348,7 +348,6 @@ C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\bin\Microsoft.AspNet.Fr
 C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\bin\es\System.Web.Optimization.resources.dll
 C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
-C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\obj\Debug\WebEjemplo.csprojAssemblyReference.cache
 C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\obj\Debug\WebEjemplo.csproj.CoreCompileInputs.cache
 C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\obj\Debug\WebEjemplo.csproj.CopyComplete
 C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\WebEjemplo\obj\Debug\WebEjemplo.dll

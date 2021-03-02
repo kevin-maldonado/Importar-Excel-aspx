@@ -26,12 +26,13 @@
     <br />
     <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
     <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" Height="251px" Width="100%" CssClass="table table-border table-hover table-sm miEstilo">
+        <asp:GridView ID="GridView1" runat="server" Height="251px" Width="100%" CssClass="table table-border table-hover table-sm miEstilo" OnRowDataBound="grdDatos_RowDataBound">
     </asp:GridView>
         
     </div>
     <br />
     <div>
+        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
         <asp:Button ID="Button3" runat="server" Text="Confirmar Excel" Width="100%" onclick="Button3_Click" />
     </div>
     <br />

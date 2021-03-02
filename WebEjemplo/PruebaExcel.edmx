@@ -14,8 +14,18 @@
           <Property Name="nombre" Type="varchar" MaxLength="50" />
           <Property Name="edad" Type="int" />
         </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="255" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="edad" Type="int" />
+        </EntityType>
         <EntityContainer Name="pruebaModelStoreContainer">
           <EntitySet Name="miexcel" EntityType="Self.miexcel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -31,18 +41,38 @@
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="edad" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="pruebaEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="edad" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="pruebaEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="miexcel" EntityType="Self.miexcel" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="pruebaModelStoreContainer" CdmEntityContainer="pruebaEntities1">
+        <EntityContainerMapping StorageEntityContainer="pruebaModelStoreContainer" CdmEntityContainer="pruebaEntities2">
           <EntitySetMapping Name="miexcel">
             <EntityTypeMapping TypeName="pruebaModel.miexcel">
               <MappingFragment StoreEntitySet="miexcel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persona">
+            <EntityTypeMapping TypeName="pruebaModel.Persona">
+              <MappingFragment StoreEntitySet="Persona">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
