@@ -18,39 +18,33 @@
     </div>
     <br />
     <div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Button2" runat="server" Text="Cargar Datos-Tabla" 
             onclick="Button2_Click" />
+        <br />
     </div>
 
     <asp:Label ID="lblOculto" runat="server" Text="" Visible="false"></asp:Label>
     <br />
     <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+    <br />
     <div class="table-responsive">
+        <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+        <br />
         <asp:GridView ID="GridView1" runat="server" Height="251px" Width="100%" CssClass="table table-border table-hover table-sm miEstilo" OnRowDataBound="grdDatos_RowDataBound">
-    </asp:GridView>
-        
+        </asp:GridView>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label2" runat="server" Text="" Visible="true"></asp:Label>
     </div>
     <br />
     <div>
-        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
-        <asp:Button ID="Button3" runat="server" Text="Confirmar Excel" Width="100%" onclick="Button3_Click" />
+   
+        <asp:Button ID="Button3" runat="server" Text="Guardar Datos" Width="100%" onclick="Button3_Click" Visible="true" />
     </div>
     <br />
-    <div class="table-responsive">
-        <asp:GridView ID="GridView2" runat="server" Height="251px" CellPadding="4" Width="100%" CssClass="table table-border table-hover table-sm miEstilo" ForeColor="#333333" GridLines="None">
-            <AlternatingRowStyle BackColor="White" />
-            <EditRowStyle BackColor="#2461BF" />
-        <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#2461BF" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-    </asp:GridView>
-    </div>
+   
+   
+ 
 
 
     

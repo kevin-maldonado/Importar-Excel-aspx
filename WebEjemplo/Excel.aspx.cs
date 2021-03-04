@@ -15,7 +15,8 @@ namespace WebEjemplo
 {
     public partial class Excel : System.Web.UI.Page
     {
-        public static string path = @"C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\archivo excel para subir\miexcel.xlsx";//aqui va la direccion del documento excel que se va a subir
+        private const bool V = true;
+        public static string path = @"C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\archivoexcelparasubir\miexcel.xlsx";//aqui va la direccion del documento excel que se va a subir
         public static string connStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extend Properties=Excel 12.0;";
 
         protected void Page_Load(object sender, EventArgs e, string strm)
@@ -46,6 +47,8 @@ namespace WebEjemplo
             //se muestra los datos en el data grid view
             GridView1.DataSource = lst;
             GridView1.DataBind();
+          
+
         }
 
         //metodo para verificar el tipo de archivo
@@ -102,43 +105,56 @@ namespace WebEjemplo
         }
         protected void grdDatos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 string nombre = DataBinder.Eval(e.Row.DataItem, "nombre").ToString();
 
                 if (nombre != String.Empty)
+                {
                     e.Row.BackColor = System.Drawing.Color.Transparent;
+                    ///Label3.Text = "Campos Completos Correctamente";
+                }
                 else
+                {
+                    Button3.Visible = false;
                     e.Row.BackColor = System.Drawing.Color.Red;
+                    Label2.Text = "Llenar todos los campos vacios de la tabla por favor";
+                   
+                }           
             }
-           
 
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
-            string path = @"C:\Users\kevin\OneDrive\Escritorio\WebEjemplo\archivo excel para subir\miexcel.xlsx";//direccion del archivos para que cargue los datos en la base
+            string path = @"C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\archivoexcelparasubir\miexcel.xlsx";//direccion del archivos para que cargue los datos en la base
             SLDocument sl = new SLDocument(path);
             using (var db = new pruebaEntities2())
             {
                 int iRow = 2;
-                while (!string.IsNullOrEmpty(sl.GetCellValueAsString(iRow, 1)))
+                if (GridView1.Rows.Count > 1 && GridView1.Rows != null)
                 {
-                    string codigo = sl.GetCellValueAsString(iRow, 1);
-                    string nombre = sl.GetCellValueAsString(iRow, 2);
-                    int edad = sl.GetCellValueAsInt32(iRow, 3);
+                    while (!string.IsNullOrEmpty(sl.GetCellValueAsString(iRow, 1)))
+                    {
+                        string codigo = sl.GetCellValueAsString(iRow, 1);
+                        string nombre = sl.GetCellValueAsString(iRow, 2);
+                        int edad = sl.GetCellValueAsInt32(iRow, 3);
+                        var oPersona = new Persona();
+                        oPersona.codigo = codigo;
+                        oPersona.nombre = nombre;
+                        oPersona.edad = edad;
 
-                    var oPersona = new Persona();
-                    oPersona.codigo = codigo;
-                    oPersona.nombre = nombre;
-                    oPersona.edad = edad;
+                        db.Persona.Add(oPersona);
+                        db.SaveChanges();
 
-                    db.Persona.Add(oPersona);
-                    db.SaveChanges();
-
-                    iRow++;
+                        iRow++;
+                    }
+                }
+                else 
+                {
+                    Label2.Text = "Llenar todos los campos vacios por favor";
                 }
             }
         }   
+
     }
 }
