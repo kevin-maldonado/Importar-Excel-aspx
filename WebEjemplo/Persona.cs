@@ -15,7 +15,7 @@ namespace WebEjemplo
     public partial class Persona
     {
         public int id { get; set; }
-        public string codigo { get; set; }
+        public Nullable<int> codigo { get; set; }
         public string nombre { get; set; }
         public Nullable<int> edad { get; set; }
     }

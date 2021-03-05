@@ -13,10 +13,10 @@ namespace WebEjemplo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class pruebaEntities2 : DbContext
+    public partial class PruebaEntities : DbContext
     {
-        public pruebaEntities2()
-            : base("name=pruebaEntities2")
+        public PruebaEntities()
+            : base("name=PruebaEntities")
         {
         }
     
@@ -25,7 +25,6 @@ namespace WebEjemplo
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<miexcel> miexcel { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
     }
 }
