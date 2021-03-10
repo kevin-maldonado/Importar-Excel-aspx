@@ -24,31 +24,31 @@ namespace WebEjemplo
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
 
         /// <summary>
-        /// Control Button1.
+        /// Control Btn_Subir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Btn_Subir;
 
         /// <summary>
-        /// Control lblOculto.
+        /// Control Lbl_Oculto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOculto;
+        protected global::System.Web.UI.WebControls.Label Lbl_Oculto;
 
         /// <summary>
-        /// Control Label1.
+        /// Control Lbl_Mensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Lbl_Mensaje;
 
         /// <summary>
         /// Control GridView1.
@@ -60,12 +60,12 @@ namespace WebEjemplo
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// Control Button3.
+        /// Control Btn_Guardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button Btn_Guardar;
     }
 }

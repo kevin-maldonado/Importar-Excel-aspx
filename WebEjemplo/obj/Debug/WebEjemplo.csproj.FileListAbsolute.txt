@@ -527,6 +527,7 @@ C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\bin\Microsoft.
 C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\bin\es\System.Web.Optimization.resources.dll
 C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\obj\Debug\WebEjemplo.csprojAssemblyReference.cache
 C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\obj\Debug\WebEjemplo.csproj.CoreCompileInputs.cache
 C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\obj\Debug\WebEjemplo.csproj.CopyComplete
 C:\Users\kevin\OneDrive\Escritorio\Importar-Excel-aspx\WebEjemplo\obj\Debug\WebEjemplo.dll
