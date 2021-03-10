@@ -24,7 +24,8 @@ namespace WebEjemplo
             //desde donde se va a inicar los datos
             int iRow = 2;
             //se crea la lista view models
-            List<LogicaExcel> lst = new List<LogicaExcel>();
+            List<LogicaExcel> list1 = new List<LogicaExcel>();
+            List<LogicaExcel> list2 = new List<LogicaExcel>();
             //Valida si los campos del excel estan sin ningun codigo
             while (!string.IsNullOrEmpty(sl.GetCellValueAsString(iRow, 1)))
             {
@@ -32,14 +33,30 @@ namespace WebEjemplo
                 Usuario.codigo = sl.GetCellValueAsInt32(iRow, 1);
                 Usuario.nombre = sl.GetCellValueAsString(iRow, 2);
                 Usuario.edad = sl.GetCellValueAsInt32(iRow, 3);
-
-                lst.Add(Usuario);
+                if (Usuario.nombre != String.Empty)
+                {
+                    list1.Add(Usuario);
+                }
+                else 
+                {
+                    list2.Add(Usuario);
+                }
                 iRow++;
             }
-            //se muestra los datos en el data grid view
-            GridView1.DataSource = lst;
-            GridView1.DataBind();
+            if (list2.Count() != 0)  
+            {
+                //se muestra los datos en el data grid view
+                GridView1.DataSource = list2;
+                GridView1.DataBind();
+            }
+            else 
+            {
+                //se muestra los datos en el data grid view
+                GridView1.DataSource = list1;
+                GridView1.DataBind();
+            }  
         }
+      
         protected void Page_Load(object sender, EventArgs e, string strm)
         {
             if (!IsPostBack)
@@ -48,6 +65,7 @@ namespace WebEjemplo
             }
 
         }
+       
         //metodo para verificar el tipo de archivo
         bool ChecarExtension(string fileName)
         {
@@ -85,7 +103,7 @@ namespace WebEjemplo
                 Label1.Text = "Error al subir el archivo excel";
             }
         }
-        
+        //Colorea las filas que estan vacias al cargar el excel
         protected void grdDatos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -95,7 +113,7 @@ namespace WebEjemplo
                 if (nombre != String.Empty)
                 {
                     e.Row.BackColor = System.Drawing.Color.Transparent;
-                    ///Label3.Text = "Campos Completos Correctamente";
+                   
                 }
                 else
                 {
