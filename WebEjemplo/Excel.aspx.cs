@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Spreadsheet;
 using SpreadsheetLight;
-using System.Data;
-using System.Data.OleDb;
-
+using Entidad;
+using Negocios;
 namespace WebEjemplo
 {
     public partial class Excel : System.Web.UI.Page
@@ -24,12 +20,12 @@ namespace WebEjemplo
             //desde donde se va a inicar los datos
             int iRow = 2;
             //se crean las lista LogicaExcel
-            List<LogicaExcel> list1 = new List<LogicaExcel>();
-            List<LogicaExcel> list2 = new List<LogicaExcel>();
+            List<Personas> list1 = new List<Personas>();
+            List<Personas> list2 = new List<Personas>();
             //Valida si los campos del excel estan sin ningun codigo
             while (!string.IsNullOrEmpty(sl.GetCellValueAsString(iRow, 1)))
             {
-                LogicaExcel Usuario = new LogicaExcel();
+                Personas Usuario = new Personas();
                 Usuario.codigo = sl.GetCellValueAsInt32(iRow, 1);
                 Usuario.nombre = sl.GetCellValueAsString(iRow, 2);
                 Usuario.edad = sl.GetCellValueAsInt32(iRow, 3);
